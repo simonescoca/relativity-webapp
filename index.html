@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effetti Relativistici - Visualizzatore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visualizzatore di Effetti Relativistici</h1>
+            <p>Esplora gli effetti della relatività speciale dal punto di vista di osservatori diversi</p>
+        </header>
+
+        <section class="section input-section">
+            <h2>Parametri del Viaggio</h2>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="distance">Distanza da percorrere:</label>
+                    <input type="number" id="distance" min="0" max="100000000000" step="0.001" value="10">
+                    <span class="unit">anni luce</span>
+                </div>
+                <div class="input-field">
+                    <label for="velocity">Velocità della nave:</label>
+                    <input type="number" id="velocity" min="0" max="99.9999999999" step="0.0001" value="90">
+                    <span class="unit">% di c</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section results-section">
+            <h2>Risultati</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-title">Distanza (osservatore esterno)</div>
+                    <div class="result-value" id="external-distance-ly">0,000 anni luce</div>
+                    <div class="result-unit" id="external-distance-km">0,000 × 10^0 km</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Distanza (osservatore interno)</div>
+                    <div class="result-value" id="internal-distance-ly">0,000 anni luce</div>
+                    <div class="result-unit" id="internal-distance-km">0,000 × 10^0 km</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Tempo (osservatore esterno)</div>
+                    <div class="result-value" id="external-time-years">0,000 anni</div>
+                    <div class="result-unit" id="external-time-formatted">0 anni, 0 mesi, 0 giorni, 0 ore, 0 minuti, 0 secondi</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Tempo (osservatore interno)</div>
+                    <div class="result-value" id="internal-time-years">0,000 anni</div>
+                    <div class="result-unit" id="internal-time-formatted">0 anni, 0 mesi, 0 giorni, 0 ore, 0 minuti, 0 secondi</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Slittamento temporale</div>
+                    <div class="result-value" id="time-dilation-years">0,000 anni</div>
+                    <div class="result-unit" id="time-dilation-formatted">0 anni, 0 mesi, 0 giorni, 0 ore, 0 minuti, 0 secondi</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Fattore di Lorentz (γ)</div>
+                    <div class="result-value" id="lorentz-factor">1,000</div>
+                    <div class="result-unit">Contrazione spazio-temporale</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section visualization-section">
+            <h2>Visualizzazione</h2>
+            <div class="visualizations-container">
+                <div>
+                    <div class="canvas-title">Osservatore Esterno</div>
+                    <div class="canvas-container">
+                        <div id="external-canvas-wrapper" class="canvas-wrapper"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="canvas-title">Osservatore Interno</div>
+                    <div class="canvas-container">
+                        <div id="internal-canvas-wrapper" class="canvas-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="play-pause-btn">▶️ Play</button>
+                <button class="control-btn" id="restart-btn">🔄 Riavvolgi</button>
+                <button class="control-btn" id="speed-btn">🚀 Velocità: 1x</button>
+            </div>
+        </section>
+
+        <section class="section formulas-section">
+            <h2>Formule di Lorentz</h2>
+            <div class="formula">
+                <div class="formula-text">Distanza: L = L₀ √(1 - v²/c²)</div>
+                <div class="formula-explanation">
+                    Dove L è la distanza percepita dall'osservatore interno, L₀ è la distanza misurata dall'osservatore esterno, 
+                    v è la velocità della nave e c è la velocità della luce. Questo effetto è noto come contrazione delle lunghezze.
+                </div>
+                <div class="formula-result" id="distance-formula-result"></div>
+            </div>
+            <div class="formula">
+                <div class="formula-text">Tempo: t₀ = t √(1 - v²/c²)</div>
+                <div class="formula-explanation">
+                    Dove t₀ è il tempo misurato dall'osservatore interno, t è il tempo misurato dall'osservatore esterno, 
+                    v è la velocità della nave e c è la velocità della luce. Questo effetto è noto come dilatazione temporale.
+                </div>
+                <div class="formula-result" id="time-formula-result"></div>
+            </div>
+        </section>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

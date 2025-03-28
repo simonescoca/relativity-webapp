@@ -1,0 +1,325 @@
+:root {
+    --primary-glow: #6e8fff;
+    --secondary-glow: #b066ff;
+    --text-color: #ffffff;
+    --bg-color: #000814;
+    --card-bg: rgba(13, 17, 23, 0.8);
+    --border-glow: 0 0 10px var(--primary-glow);
+    --text-glow: 0 0 5px var(--primary-glow);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(30, 60, 114, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(110, 20, 120, 0.2) 0%, transparent 40%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(110, 143, 255, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary-glow), var(--secondary-glow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-glow);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: var(--text-color);
+    text-shadow: var(--text-glow);
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.section {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(110, 143, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.1rem;
+    min-width: 120px;
+}
+
+input[type="number"] {
+    background-color: rgba(30, 30, 40, 0.8);
+    border: 1px solid rgba(110, 143, 255, 0.5);
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: 1rem;
+    width: 100%;
+    max-width: 200px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: var(--primary-glow);
+    box-shadow: var(--border-glow);
+}
+
+.unit {
+    font-size: 1rem;
+    color: var(--primary-glow);
+    min-width: 100px;
+}
+
+.results-section {
+    margin-top: 30px;
+}
+
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 1024px) {
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+.result-card {
+    background-color: rgba(20, 25, 35, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(110, 143, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    box-shadow: var(--border-glow);
+    transform: translateY(-2px);
+}
+
+.result-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--primary-glow);
+}
+
+.result-value {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.result-unit {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.visualization-section {
+    margin-top: 30px;
+}
+
+.visualizations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .visualizations-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .visualizations-container > div {
+        width: 48%;
+    }
+}
+
+.canvas-container {
+    flex: 1;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(110, 143, 255, 0.3);
+}
+
+.canvas-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-glow);
+    text-shadow: var(--text-glow);
+}
+
+.canvas-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background-color: rgba(30, 30, 40, 0.8);
+    border: 1px solid rgba(110, 143, 255, 0.5);
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn:hover {
+    background-color: rgba(110, 143, 255, 0.2);
+    border-color: var(--primary-glow);
+}
+
+.control-btn.active {
+    background-color: rgba(110, 143, 255, 0.3);
+    border-color: var(--primary-glow);
+    box-shadow: var(--border-glow);
+}
+
+.formulas-section {
+    margin-top: 30px;
+}
+
+.formula {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(20, 25, 35, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(110, 143, 255, 0.3);
+}
+
+.formula-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.formula-explanation {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+}
+
+.formula-result {
+    font-size: 1.1rem;
+    color: var(--primary-glow);
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+    
+    .input-field {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .unit {
+        margin-left: 0;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .input-field {
+        flex-direction: row;
+    }
+    
+    .controls {
+        flex-direction: row;
+    }
+}
+
+/* Stelle fisse nello sfondo */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 1;
+}
